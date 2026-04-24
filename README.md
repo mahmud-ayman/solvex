@@ -1,4 +1,4 @@
-# lppm
+# SolveX
 
 A new Flutter project.
 
