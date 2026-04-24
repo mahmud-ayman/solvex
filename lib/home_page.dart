@@ -29,7 +29,7 @@ class HomeView extends StatelessWidget {
         final cubit = context.read<HomeCubit>();
 
         return Scaffold(
-          backgroundColor: Colors.white,
+          backgroundColor: Color(0xffF9F6EE),
           appBar: AppBar(
             backgroundColor: const Color.fromARGB(255, 209, 209, 209),
             shape: const RoundedRectangleBorder(
@@ -336,11 +336,6 @@ class HomeView extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 12),
-            if (state.thetaNote.isNotEmpty)
-              Text(
-                state.thetaNote,
-                style: const TextStyle(fontSize: 14, color: Colors.black87),
-              ),
           ],
         ],
       ),

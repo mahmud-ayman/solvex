@@ -25,7 +25,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
         width: 200,
         height: 200,
       ),
-      color: const Color.fromARGB(255, 248, 251, 253),
+      color: Color(0xffF9F6EE),
     ),
     _OnboardingItem(
       title: "LPPM Solver",
@@ -44,7 +44,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
           ),
         ],
       ),
-      color: const Color.fromARGB(255, 248, 251, 253),
+      color: Color(0xffF9F6EE),
     ),
     _OnboardingItem(
       title: "Time Delay - Theta",
@@ -56,7 +56,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
         width: 200,
         height: 200,
       ),
-      color: const Color.fromARGB(255, 248, 251, 253),
+      color: Color(0xffF9F6EE),
     ),
     _OnboardingItem(
       title: "تقدر تحل اكتر من نوع معادلات خش واكتشف بنفسك ",
@@ -104,7 +104,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
           // ).animate().fadeIn(duration: const Duration(milliseconds: 500)),
         ],
       ),
-      color: const Color.fromARGB(255, 248, 251, 253),
+      color: Color(0xffF9F6EE),
     ),
   ];
 
@@ -141,7 +141,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
     final bool isLastPage = currentIndex == items.length - 1;
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xffF9F6EE),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
