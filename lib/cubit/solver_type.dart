@@ -1,0 +1,1 @@
+enum SolverType { lppm, timeDelay }
