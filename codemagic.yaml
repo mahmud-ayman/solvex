@@ -1,6 +1,6 @@
 workflows:
   ios-workflow:
-    name: iOS IPA Build
+    name: iOS IPA Build - Solvex
     instance_type: mac_mini_m1
     max_build_duration: 60
     environment:
@@ -10,34 +10,32 @@ workflows:
     scripts:
       - name: Get Flutter packages
         script: flutter pub get
+      
+      - name: Set App Display Name to Solvex
+        script: |
+          /usr/libexec/PlistBuddy -c "Set :CFBundleDisplayName Solvex" ios/Runner/Info.plist
+          /usr/libexec/PlistBuddy -c "Set :CFBundleName Solvex" ios/Runner/Info.plist
+      
       - name: Install Pods
         script: |
           cd ios
           pod install --repo-update
+      
       - name: Build Unsigned iOS IPA
         script: |
           set -e
-          # Build without requiring an Apple Developer Account
           flutter build ios --release --no-codesign
           
-          # Create IPA directory structure
           mkdir -p build/ios/ipa/Payload
           
-          # Find the compiled Runner.app
           APP_PATH=$(find build -name "Runner.app" -type d | head -n 1)
           echo "Found app at: $APP_PATH"
           
-          if [ -z "$APP_PATH" ]; then
-            echo "Error: Runner.app not found!"
-            exit 1
-          fi
-          
-          # Copy it completely
           cp -R "$APP_PATH" build/ios/ipa/Payload/
           
-          # Zip it up into an IPA format
           cd build/ios/ipa
-          zip -r CineMax_Unsigned.ipa Payload
+          # استخدم ditto بدل zip عشان الـ IPA يبقى متوافق
+          /usr/bin/ditto -c -k --sequesterRsrc --keepParent Payload Solvex_Unsigned.ipa
     artifacts:
       - build/ios/ipa/*.ipa
       - /tmp/xcodebuild_logs/*.log
