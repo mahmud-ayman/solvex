@@ -16,7 +16,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
 
   final List<_OnboardingItem> items = [
     _OnboardingItem(
-      title: "welcome to the solver",
+      title: "welcome to solvex",
       description:
           "تطبيق هيساعدك تفهم نظريه الاضطراب بطريقه سهله وبسيطه، وكمان هيساعدك تحل المعادلات وتطلع المطلوب .",
       icon: Lottie.asset(
@@ -25,7 +25,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
         width: 200,
         height: 200,
       ),
-      color: Color(0xffF9F6EE),
+      color: Colors.white,
     ),
     _OnboardingItem(
       title: "LPPM Solver",
@@ -44,7 +44,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
           ),
         ],
       ),
-      color: Color(0xffF9F6EE),
+      color: Colors.white,
     ),
     _OnboardingItem(
       title: "Time Delay - Theta",
@@ -56,7 +56,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
         width: 200,
         height: 200,
       ),
-      color: Color(0xffF9F6EE),
+      color: Colors.white,
     ),
     _OnboardingItem(
       title: "تقدر تحل اكتر من نوع معادلات خش واكتشف بنفسك ",
@@ -104,7 +104,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
           // ).animate().fadeIn(duration: const Duration(milliseconds: 500)),
         ],
       ),
-      color: Color(0xffF9F6EE),
+      color: Colors.white,
     ),
   ];
 
@@ -141,7 +141,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
     final bool isLastPage = currentIndex == items.length - 1;
 
     return Scaffold(
-      backgroundColor: Color(0xffF9F6EE),
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
@@ -192,17 +192,19 @@ class _OnboardingPageState extends State<OnboardingPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  SizedBox(
-                    width: 60,
-                    child: ElevatedButton(
-                      onPressed: _nextPage,
-                      style: ElevatedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        side: const BorderSide(color: Colors.blue),
-                        backgroundColor: const Color.fromARGB(255, 0, 153, 255),
-                        padding: const EdgeInsets.symmetric(vertical: 9),
+                  ElevatedButton(
+                    onPressed: _nextPage,
+                    style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      side: const BorderSide(color: Colors.blue),
+                      backgroundColor: const Color.fromARGB(255, 0, 153, 255),
+                      padding: const EdgeInsets.symmetric(vertical: 9),
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: isLastPage ? 15.0 : 0.0,
                       ),
                       child: Text(
                         isLastPage ? "ابدأ الآن" : "التالي",
